@@ -1,9 +1,12 @@
 # csv-config-parser
-Paser to get values from a CSV config file
+Parser to get values from a CSV config file
+
+A configuration file consists of sections, lead by a "section" header,
+and followed by "name: value" entries, with continuations(comma seperated).
+
 
 CSV config files are simpler to read and easier to use
-for projects with multiple headers and many (Key,Values) pairs
-defined under them.
+for projects with many section headers.
 
 ## Structure of a CSV Config file
 
