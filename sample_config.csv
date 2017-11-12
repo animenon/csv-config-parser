@@ -1,0 +1,14 @@
+# Specify configurations as follows -
+# header1, name1:val1, name2:val2
+# ...
+# each line is a config except lines starting with # or ;
+
+test1, key_1 = value_1, key_2 = value_2
+test2, key_10 = value_10, key_20 = value_20,  key_30 = value_30
+test3, key_100 = value_100, key_200 = value_200
+
+# In this file test1, test2 and test3 are headers.
+# <key = value> are configurations defined under respective
+#  headers.
+# A header may have any number of configuration
+# (key, value) pairs defined.
