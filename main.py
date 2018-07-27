@@ -8,9 +8,8 @@ class CsvConfigParser:
         """
         Read the CSV config file and return a dictionary with configuration sections as keys
 
-        :return: dictionaries of section(s) which contain Configuration Key-Value pairs
+        :return: Dictionary of dictionaries of section(s) which contain Configuration Key-Value pairs
         """
-        print("CSV config parser started.")
         with open(self.file_path) as f:
             contents = f.readlines()
             contents2 = [x.strip() for x in contents if (x[0] != ";" and x[0] != "#")]    # remove comments
@@ -29,28 +28,49 @@ class CsvConfigParser:
                         key = pair[0].strip()
                         val = pair[1].strip()
                     lst.pop(0)
-        print(self.result_dict)
         return 0
 
     def get_config(self, section, key):
         """
-        Provide section name to get key value pairs in section
+        Provide section and key to get corresponding value from the config-file
 
-        :param section:
-        :param key:
-        :return:
+        :param section: the header(first element in CSV row)
+        :param key: a key from the section
+        :return: value of the key in section
         """
         return self.result_dict[section][key]
 
     def sections(self):
         """
         Return all sections
-        :return:
+
+        :return: list of all section/headers in config-file
         """
         return list(self.result_dict.keys())
 
-"""Test """
+    def keys(self, section):
+        """
+        Returns the list of keys in the section
+
+        :param section:
+        :return:
+        """
+        return list(self.result_dict[section])
+
+
 if __name__ == '__main__':
-    parser = CsvConfigParser("sample_config.csv")
-    print(parser.get_config("test1", "column1"))
-    print(parser.sections())
+    # Call CsvConfigParser by passing config file path as arguement 
+    parser = CsvConfigParser("sample.ini")
+
+    section='test2'
+    key='key_10'
+
+    # parser.get_config(<section_name>, <key>) gives the value for the key in the section
+    print("Value in {section} section for key {key} is {value}".format(section=section, key=key, value=parser.get_config(section, key)))
+
+    # parser.sections() returns list of all sections
+    print("List of headers/sections in the config file: {sections}".format(sections=parser.sections()))
+
+    # parser.keys(<section_name>) gives a list of all keys in that section
+    print("List of all keys in {section} section :".format(section=parser.keys(section)))
+
