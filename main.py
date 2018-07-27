@@ -49,9 +49,8 @@ class CsvConfigParser:
         """
         return list(self.result_dict.keys())
 
-"""Test
+"""Test """
 if __name__ == '__main__':
     parser = CsvConfigParser("sample_config.csv")
     print(parser.get_config("test1", "column1"))
     print(parser.sections())
-"""
