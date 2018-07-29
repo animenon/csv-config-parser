@@ -62,7 +62,7 @@ if __name__ == '__main__':
     # Call CsvConfigParser by passing config file path as arguement 
     parser = CsvConfigParser("sample.ini")
 
-    section='test2'
+    section='test20'
     key='key_10'
 
     # parser.get_config(<section_name>, <key>) gives the value for the key in the section
